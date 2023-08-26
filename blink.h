@@ -1,5 +1,5 @@
-#ifndef BLINK.H
-#define BLINK.H
+#ifndef BLINK_H
+#define BLINK_H
 
 #include "pico/stdlib.h"
 #include "hardware/pio.h"
