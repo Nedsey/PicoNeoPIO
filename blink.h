@@ -1,5 +1,5 @@
-#ifndef NEOPIXEL_DRIVER_H
-#define NEOPIXEL_DRIVER_H
+#ifndef BLINK.H
+#define BLINK.H
 
 #include "pico/stdlib.h"
 #include "hardware/pio.h"
@@ -30,4 +30,4 @@ void resetPixels();
 int randColor();
 int getPixelValue(int pixel, char value[]);
 
-#endif /* NEOPIXEL_DRIVER_H */
+#endif /* BLINK_H */
