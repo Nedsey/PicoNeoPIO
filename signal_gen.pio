@@ -1,0 +1,41 @@
+.program neopxl
+public entry_point:
+    pull
+    set x, 23
+bitloop:
+    set pins, 1
+    out y, 1 [5]
+    jmp !y skip
+    nop [7]
+skip:
+    set pins, 0 [5]
+    jmp !y delay
+    jmp iter
+delay:
+    nop[8]
+    
+iter:
+    jmp x-- bitloop ;
+    jmp entry_point;
+
+% c-sdk {
+static inline void neopxl_program_init(PIO pio, uint sm, uint offset, uint pin) {
+    pio_sm_config c = neopxl_program_get_default_config(offset);
+
+    // Map the state machine's OUT pin group to one pin, namely the `pin`
+    // parameter to this function.
+    sm_config_set_out_pins(&c, pin, 1);
+    // Set this pin's GPIO function (connect PIO to the pad)
+    pio_gpio_init(pio, pin);
+    // Set the pin direction to output at the PIO
+    pio_sm_set_consecutive_pindirs(pio, sm, pin, 1, true);
+    sm_config_set_set_pins(&c, pin, 1);
+    
+    float divider = (float) clock_get_hz(clk_sys) / 20000000;
+    sm_config_set_clkdiv(&c, divider);
+
+    pio_sm_init(pio, sm, offset, &c);
+    // Set the state machine running
+    pio_sm_set_enabled(pio, sm, true);
+}
+%}
