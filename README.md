@@ -13,7 +13,7 @@ Note: The library is currently compatible with the pico-sdk only. A MicroPython 
 1. Clone the repository to your local machine:
 
 ```
-git clone https://github.com/nedsey/NeoPicoDriver.git
+git clone https://github.com/Nedsey/PicoNeoPIO.git
 ```
 
 2. Navigate to the folder containing the repository:
