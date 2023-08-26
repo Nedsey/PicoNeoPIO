@@ -122,7 +122,7 @@ int main(){
 
 ## Credits
 
-Developed by Nedsey. Find more of my work on [GitHub](https://github.com/nedsey).
+Developed by [Nathan Edsey](https://github.com/nedsey)
 
 ## License
 
